@@ -73,7 +73,7 @@ namespace Musarium.ViewModel {
                             if (result != null) {
                                 this.View.ShowAlert("Created", "Yeee");
                             } else {
-                                this.View.ShowAlert("As always", "try");
+                                this.View.ShowAlert("As always", "try"); 
                             }
                         },
                         (param) => { return true; }

@@ -32,7 +32,7 @@ namespace Musarium.View {
         }
 
         private void MuseumLocation_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e) {
-            e.Handled = true;
+            e.Handled = true; 
             this.MuseumLocation.Children.Clear();
             Point mousePosition = e.GetPosition(MuseumLocation);
             Location pinLocation = this.MuseumLocation.ViewportPointToLocation(mousePosition);

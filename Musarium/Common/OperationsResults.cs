@@ -12,7 +12,7 @@ namespace Musarium.Common {
         InvalidConnection,
         Successful
     }
-
+     
     public enum RegistrationResult {
         LoginIsExist,
         PasswordsIsNotMatch,

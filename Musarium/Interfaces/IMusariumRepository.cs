@@ -9,4 +9,4 @@ namespace Musarium.Interfaces {
         Museum GetMuseumByLogin(string login);
         Museum CreateMuseum(string login, string password, string city);
     }
-}
+} 

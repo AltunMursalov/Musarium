@@ -16,7 +16,7 @@ namespace Musarium.Services {
         public AccountService(IMusariumRepository musariumMusariumRepository, ICityRepository cityRepository) {
             this.musariumMusariumRepository = musariumMusariumRepository;
             this.cityRepository = cityRepository;
-        }
+        } 
 
         public AuthenticationResult Login(string login, string password) {
             var result = musariumMusariumRepository.OpenConnection();

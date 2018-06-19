@@ -8,4 +8,4 @@ namespace Musarium.Interfaces {
         void Show();
         void SetCenter(Location center);
     }
-}
+} 

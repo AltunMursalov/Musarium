@@ -7,4 +7,4 @@ namespace Musarium.Interfaces {
         Prize CreatePrize(Prize prize);
         IEnumerable<Prize> GetMuseumPrizes(int museumId);
     }
-}
+} 

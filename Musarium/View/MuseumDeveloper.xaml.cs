@@ -31,5 +31,5 @@ namespace Musarium.View {
         public void Show() {
             this.Visibility = Visibility.Visible;
         }
-    }
+    } 
 }

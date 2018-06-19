@@ -3,4 +3,4 @@
         void BindDataContext(ILogInViewModel viewModel);
         void ShowAlert(string text, string caption);
     }
-}
+} 

@@ -9,4 +9,4 @@ namespace Musarium.Interfaces {
         Prize Prize { get; set; }
         ObservableCollection<Prize> Prizes { get; set; }
     }
-}
+} 

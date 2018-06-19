@@ -40,7 +40,7 @@ namespace Musarium.ViewModel {
                                 Museum.Login = String.Empty;
                                 Museum.ValidatePassword = String.Empty;
                                 Museum.Password = String.Empty;
-                                this.View.ShowAlert("Successfuly registered!", "Confirmed!");
+                                this.View.ShowAlert("Successfuly registered!", "Confirmed!"); 
                             }
                         },
                         (param) => {

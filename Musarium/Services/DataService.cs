@@ -14,7 +14,7 @@ namespace Musarium.Services {
         private readonly IPrizeRepository prizeRepository;
         private readonly IQuestRepository questRepository;
         private readonly IQuestionRepository questionRepository;
-        ICityRepository cityRepository;
+        ICityRepository cityRepository; 
         private readonly IStatisticRepository statisticRepository;
         private readonly IAnswerRepository answerRepository;
         private AppData AppData = AppData.GetInstance();

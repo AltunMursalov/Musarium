@@ -26,7 +26,7 @@ namespace Musarium.View {
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e) {
-            if (e.ChangedButton == MouseButton.Right)
+            if (e.ChangedButton == MouseButton.Right) 
                 return;
             this.DragMove();
         }

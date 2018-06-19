@@ -9,4 +9,4 @@ namespace Musarium.Interfaces {
         ILoginView View { get; }
         event EventHandler<EventArgs> Loginned;
     }
-}
+} 

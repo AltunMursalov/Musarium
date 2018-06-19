@@ -26,4 +26,4 @@ namespace Musarium.View
             this.Hide();
         }
     }
-}
+} 

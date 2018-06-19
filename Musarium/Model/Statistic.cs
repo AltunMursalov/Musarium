@@ -21,7 +21,7 @@ namespace Musarium.Model {
 
         public int QuestId {
             get { return questId; }
-            set { questId = value; base.OnChanged(); }
+            set { questId = value; base.OnChanged(); } 
         }
 
         private bool isComplete;

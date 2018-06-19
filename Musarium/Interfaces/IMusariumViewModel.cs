@@ -6,4 +6,4 @@ namespace Musarium.Interfaces {
     public interface IMusariumViewModel {
         IMusariumView View { get; }
     }
-}
+} 

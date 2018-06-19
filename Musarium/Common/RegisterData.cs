@@ -13,7 +13,7 @@ namespace Musarium.Common {
             set { login = value; base.OnChanged(); }
         }
 
-        private string password;
+        private string password; 
 
         public string Password {
             get { return password; }

@@ -40,7 +40,7 @@ namespace Musarium.ViewModel {
                                 }
                                 this.View.ShowAlert("The prize created!", "INFO");
                             }
-                            this.View.Hide();
+                            this.View.Hide(); 
                         },
                         (param) => {
                             return this.Prize.PrizeName?.Length > 0;

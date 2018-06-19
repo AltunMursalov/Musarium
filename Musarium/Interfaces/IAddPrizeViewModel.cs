@@ -5,4 +5,4 @@ namespace Musarium.Interfaces {
         IAddPrizeView View { get; }
         ICommand Save { get; }
     }
-}
+} 

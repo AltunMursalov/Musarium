@@ -20,3 +20,4 @@ namespace Musarium.View {
         }
     }
 }
+ 

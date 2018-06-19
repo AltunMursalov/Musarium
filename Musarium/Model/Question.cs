@@ -52,7 +52,7 @@ namespace Musarium.Model {
         }
 
         private string answer;
-
+         
         public string Answer {
             get { return answer; }
             set { answer = value; base.OnChanged(); }

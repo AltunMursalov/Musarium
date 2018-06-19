@@ -35,7 +35,7 @@ namespace Musarium.ViewModel {
                 PrizeId = 1
             };
             Difficults = new List<string> {
-                "Легкий",
+                "Легкий", 
                 "Средний",
                 "Сложный"
             };

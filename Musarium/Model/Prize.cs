@@ -22,5 +22,5 @@ namespace Musarium.Model {
             get { return picSrc; }
             set { picSrc = value; base.OnChanged(); }
         }
-    }
+    } 
 }

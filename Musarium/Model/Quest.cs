@@ -19,7 +19,7 @@ namespace Musarium.Model {
         private string description;
 
         public string Description {
-            get { return description; }
+            get { return description; } 
             set { description = value; base.OnChanged(); }
         }
 

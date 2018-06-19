@@ -28,7 +28,7 @@ namespace Musarium.View {
             this.Visibility = Visibility.Visible;
         }
 
-        public void ChangedButtonToDone() {
+        public void ChangedButtonToDone() { 
             this.Next.Visibility = Visibility.Collapsed;
             this.Done.Visibility = Visibility.Visible;
         }

@@ -28,7 +28,7 @@ namespace Musarium.ViewModel {
 
         public ICommand LogOut {
             get {
-                if (this.logOut is null) {
+                if (this.logOut is null) { 
                     this.logOut = new RelayCommand(
                         (param) => {
                             this.View.Hide();

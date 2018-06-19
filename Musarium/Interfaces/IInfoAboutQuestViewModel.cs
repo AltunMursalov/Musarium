@@ -2,4 +2,4 @@
     public interface IInfoAboutQuestViewModel {
         IInfoAboutQuestView View { get; }
     }
-}
+} 

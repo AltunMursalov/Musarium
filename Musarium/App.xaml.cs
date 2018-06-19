@@ -14,4 +14,4 @@ namespace Musarium {
             this.MainWindow.Show();
         }
     }
-}
+} 

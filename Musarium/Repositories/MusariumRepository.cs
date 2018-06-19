@@ -25,7 +25,7 @@ namespace Musarium.Repositories {
             }
         }
 
-        public void CloseConnection() {
+        public void CloseConnection() { 
             if (connection != null)
                 this.connection.Close();
         }

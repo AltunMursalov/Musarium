@@ -10,4 +10,4 @@ namespace Musarium.Interfaces {
         Museum Museum { get; set; }
         ICommand DeleteQuest { get; }
     }
-}
+} 

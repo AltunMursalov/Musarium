@@ -5,4 +5,4 @@ namespace Musarium.Interfaces {
         IMuseumEditingView View { get; }
         Museum Museum { get; set; }
     }
-}
+} 

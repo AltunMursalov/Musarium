@@ -28,7 +28,7 @@ namespace Musarium.ViewModel {
         public ICommand AddQuest {
             get {
                 if (this.addQuest is null) {
-                    this.addQuest = new RelayCommand(
+                    this.addQuest = new RelayCommand( 
                         (param) => {
                             this.View.Hide();
                             AppData.Container.Resolve<IMuseumEditingViewModel>().View.Hide();

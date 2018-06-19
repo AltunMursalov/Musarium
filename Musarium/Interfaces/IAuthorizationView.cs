@@ -5,4 +5,4 @@
         void Show();
         void SetFramesContent(ILoginView login, IRegistrationView registration);
     }
-}
+} 

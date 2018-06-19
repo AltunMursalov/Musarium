@@ -19,6 +19,6 @@ namespace Musarium.Interfaces {
         bool DeleteQuest(Quest id);
         bool CreatePrize(Prize prize);
         Museum GetByLogin(string login);
-        bool CreateQuestion(Question question, Answer answer);
+        bool CreateQuestion(Question question, List<Answer> answer);
     }
 }

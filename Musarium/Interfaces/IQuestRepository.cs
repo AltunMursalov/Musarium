@@ -8,4 +8,4 @@ namespace Musarium.Interfaces {
         IEnumerable<Quest> GetMuseumQuests(int museumId);
         bool RemoveQuest(int questId);
     }
-}
+} 

@@ -12,4 +12,4 @@ namespace Musarium.Interfaces {
         IEnumerable<Question> GetQuestQuestions(int questId);
         int GetQuestQuestionsCount(int questId);
     }
-}
+} 

@@ -28,7 +28,7 @@ namespace Musarium.ViewModel {
         }
         private Prize prize;
         public Prize Prize { get => prize; set { prize = value; base.OnChanged(); } }
-
+         
         public PrizeShowViewModel(IPrizeShowView view, IDataService dataService) {
             this.View = view;
             this.View.BindDataContext(this);

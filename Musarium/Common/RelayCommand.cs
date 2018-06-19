@@ -24,7 +24,7 @@ namespace Musarium.Common {
             return this.canExecute == null || this.canExecute(parameter);
         }
 
-        public void Execute(object parameter) {
+        public void Execute(object parameter) { 
             this.execute(parameter);
         }
     }

@@ -21,7 +21,7 @@ namespace Musarium.Model {
 
         public string LastName {
             get { return lastName; }
-            set { lastName = value; base.OnChanged(); }
+            set { lastName = value; base.OnChanged(); } 
         }
 
         private DateTime birthDate;

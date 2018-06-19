@@ -7,4 +7,4 @@ namespace Musarium.Interfaces {
         void EditProfile(Museum museum);
         RegistrationResult Registration(RegisterData Museum);
     }
-}
+} 

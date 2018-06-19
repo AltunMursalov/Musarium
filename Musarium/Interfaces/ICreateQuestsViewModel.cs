@@ -5,4 +5,4 @@ namespace Musarium.Interfaces {
         ICreateQuestsView View { get; }
         Question Question { get; set; }
     }
-}
+} 

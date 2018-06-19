@@ -5,4 +5,4 @@ namespace Musarium.Interfaces {
         ITaskInfoAboutQuestView View { get; }
         Quest Quest { get; set; }
     }
-}
+} 

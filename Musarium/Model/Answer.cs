@@ -17,7 +17,7 @@ namespace Musarium.Model {
         }
 
         private bool isRight;
-
+         
         public bool IsRight {
             get { return isRight; }
             set { isRight = value; base.OnChanged(); }

@@ -22,7 +22,7 @@ namespace Musarium.Repositories {
                 connection.Open();
                 return true;
             }
-            catch (DbException) {
+            catch (DbException) { 
                 return false;
             }
         }

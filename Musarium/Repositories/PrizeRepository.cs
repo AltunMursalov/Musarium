@@ -67,7 +67,7 @@ namespace Musarium.Repositories {
             catch (DbException ex) {
                 return null;
             }
-        }
+        } 
 
         public IEnumerable<Prize> GetMuseumPrizes(int museumId) {
             DbCommand command = connection.CreateCommand();

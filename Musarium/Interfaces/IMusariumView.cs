@@ -10,3 +10,4 @@ namespace Musarium.Interfaces {
         void SetFramesContent(IMuseumDeveloperView museumDeveloperView, IMuseumEditingView museumEditingView, IAddEditView addEditView);
     }
 }
+ 

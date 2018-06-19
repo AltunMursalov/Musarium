@@ -10,4 +10,4 @@ namespace Musarium.Interfaces {
         IRegistrationView View { get; }
         ICommand Registration { get; }
     }
-}
+} 

@@ -5,3 +5,4 @@
         IAuthorizationView View { get; }
     }
 }
+ 

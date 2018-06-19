@@ -37,7 +37,7 @@ namespace Musarium.ViewModel {
                     );
                 }
                 return this.newAnswer;
-            }
+            } 
         }
 
         private ICommand save;

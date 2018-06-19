@@ -10,3 +10,4 @@ namespace Musarium.Interfaces {
         Brush ThirdStepBG { get; set; }
     }
 }
+ 

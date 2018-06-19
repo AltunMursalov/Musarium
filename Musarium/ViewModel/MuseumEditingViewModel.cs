@@ -29,7 +29,7 @@ namespace Musarium.ViewModel {
                 if (this.toMuseumDeveloper is null) {
                     this.toMuseumDeveloper = new RelayCommand(
                         (param) => {
-                            this.View.Hide();
+                            this.View.Hide(); 
                             AppData.Container.Resolve<IMuseumDeveloperViewModel>().View.Show();
                         },
                         (param) => {

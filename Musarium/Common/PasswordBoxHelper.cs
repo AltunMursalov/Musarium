@@ -12,7 +12,7 @@ namespace Musarium.Common {
             DependencyProperty.RegisterAttached("Attach",
             typeof(bool), typeof(PasswordHelper), new PropertyMetadata(false, Attach));
 
-        private static readonly DependencyProperty IsUpdatingProperty =
+        private static readonly DependencyProperty IsUpdatingProperty = 
            DependencyProperty.RegisterAttached("IsUpdating", typeof(bool),
            typeof(PasswordHelper));
 

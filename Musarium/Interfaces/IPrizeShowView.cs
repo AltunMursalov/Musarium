@@ -4,4 +4,4 @@
         void Show();
         void Hide();
     }
-}
+} 

@@ -23,7 +23,7 @@ namespace Musarium.Repositories {
                 return false;
             }
         }
-
+        
         public void CloseConnection() {
             if (connection != null)
                 this.connection.Close();

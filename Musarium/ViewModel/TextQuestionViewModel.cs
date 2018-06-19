@@ -41,7 +41,7 @@ namespace Musarium.ViewModel {
                         (param) => { return true; }
                     );
                 }
-                return this.save;
+                return this.save; 
             }
         }
     }

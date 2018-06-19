@@ -30,11 +30,7 @@ namespace Musarium.View {
 
         public void ShowAlert(string text, string caption) {
             MessageBox.Show(text, caption, MessageBoxButton.YesNo, MessageBoxImage.Question);
-        }
-
-        //private void Window_Unloaded(object sender, RoutedEventArgs e) {
-        //    Application.Current.Shutdown();
-        //}
+        } 
 
         public void SetFramesContent(IMuseumDeveloperView museumDeveloperView, IMuseumEditingView museumEditingView, IAddEditView addEditView) {
             this.MuseumDeveloper.Content = museumDeveloperView;

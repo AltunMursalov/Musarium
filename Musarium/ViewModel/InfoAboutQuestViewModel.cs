@@ -22,4 +22,4 @@ namespace Musarium.ViewModel {
             this.View.BindDataContext(this);
         }
     }
-}
+} 

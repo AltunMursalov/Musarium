@@ -95,7 +95,7 @@ namespace Musarium.Repositories {
                 while (reader.Read()) {
                     Quest quest = new Quest {
                         Id = Convert.ToInt32(reader["Id"]),
-                        Description = Convert.ToString(reader["Description"]),
+                        Description = Convert.ToString(reader["Description"]), 
                         Difficult = Convert.ToInt32(reader["Difficult"]),
                         MuseumId = Convert.ToInt32(reader["MuseumId"]),
                         PictureSrc = Convert.ToString(reader["PictureSrc"]),

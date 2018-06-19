@@ -66,7 +66,7 @@ namespace Musarium.Common {
             builder.RegisterType<PrizeShow>().As<IPrizeShowView>();
             builder.RegisterType<AddPrize>().As<IAddPrizeView>();
             builder.RegisterType<InfoAboutQuest>().As<IInfoAboutQuestView>();
-            builder.RegisterType<AddEditQuest>().As<IAddEditView>();
+            builder.RegisterType<AddEditQuest>().As<IAddEditView>(); 
             builder.RegisterType<MuseumDeveloper>().As<IMuseumDeveloperView>();
             builder.RegisterType<MuseumEditing>().As<IMuseumEditingView>();
             builder.RegisterType<Authorization>().As<IAuthorizationView>();

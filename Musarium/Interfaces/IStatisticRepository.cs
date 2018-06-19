@@ -6,4 +6,4 @@ namespace Musarium.Interfaces {
         IList<Statistic> GetStatistics();
         Statistic GetStatisticByQuest(Quest quest);
     }
-}
+} 

@@ -5,4 +5,4 @@ namespace Musarium.Interfaces {
         IManyAnswerQuestionView View { get; }
         ICommand NewAnswer { get; }
     }
-}
+} 

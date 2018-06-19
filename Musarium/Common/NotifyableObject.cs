@@ -8,4 +8,4 @@ namespace Musarium.Common {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
-}
+} 

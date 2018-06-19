@@ -20,4 +20,4 @@ namespace Musarium.View {
             this.Visibility = System.Windows.Visibility.Visible;
         }
     }
-}
+} 

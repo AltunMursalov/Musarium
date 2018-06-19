@@ -13,3 +13,4 @@ namespace Musarium.Interfaces
         void Hide();
     }
 }
+ 

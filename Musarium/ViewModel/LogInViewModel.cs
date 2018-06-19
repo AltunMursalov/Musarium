@@ -71,4 +71,4 @@ namespace Musarium.ViewModel
 
         public ILoginView View { get; }
     }
-}
+} 

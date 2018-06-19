@@ -10,3 +10,4 @@ namespace Musarium.Interfaces {
         void ShowAlert(string text, string caption);
     }
 }
+ 

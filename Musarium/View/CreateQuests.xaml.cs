@@ -25,4 +25,4 @@ namespace Musarium.View {
             MessageBox.Show(text, caption);
         }
     }
-}
+} 

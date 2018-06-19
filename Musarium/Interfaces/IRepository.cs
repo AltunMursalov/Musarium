@@ -6,4 +6,4 @@ namespace Musarium.Interfaces {
         bool OpenConnection();
         void CloseConnection();
     }
-}
+} 

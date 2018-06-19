@@ -36,7 +36,7 @@ namespace Musarium.ViewModel {
             museumEditing.Museum.Adress = editingMuseum.Adress;
             museumEditing.Museum.PictureSrc = editingMuseum.PictureSrc;
             museumEditing.Museum.Description = editingMuseum.Description;
-            museumEditing.Museum.Phone = editingMuseum.Phone;
+            museumEditing.Museum.Phone = editingMuseum.Phone; 
             museumEditing.Museum.Radius = editingMuseum.Radius;
             museumEditing.Museum.CityName = museumDeveloper.Museum.CityName;
             museumEditing.Museum.WebSite = editingMuseum.WebSite;
