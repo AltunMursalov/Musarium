@@ -1,0 +1,63 @@
+﻿<Window x:Class="Musarium.View.AddPrize"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+						xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Musarium.View"
+      mc:Ignorable="d"
+      Title="PrizeEditing" WindowStyle="None" Height="250.996" Width="497.14">
+
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="ProfileEdit">
+            <Setter Property="Foreground" Value="#2D3E50"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel Background="White">
+
+        <Grid>
+            <Label Content="Создание приза" HorizontalAlignment="Center" FontSize="18" Foreground="#2D3E50"/>
+
+            <material:PackIcon HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="LightGray"  Background="Transparent" Kind="Close" Height="20" Width="20"/>
+        </Grid>
+
+        <Separator Height="10" BorderBrush="LightGray" BorderThickness="3"/>
+
+        <Grid Margin="15 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Приз будет выдан пользователю только в том случае, если он наберет определенное количество очков." TextWrapping="Wrap" Foreground="#2D3E50" FontSize="14"/>
+
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <Label Style="{StaticResource ProfileEdit}" Content="Название приза"/>
+
+                <Border BorderThickness="1" BorderBrush="LightGray">
+                    <TextBox Margin="5" Text="{Binding Prize.PrizeName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Border>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" Margin="20 0 0 0">
+                <Label Content="Изображение" Style="{StaticResource ProfileEdit}"/>
+                <Image Height="30" Width="30"/>
+                <Button Name="AddPic" Content="Добавить изображение" Background="#2D3E50" Foreground="White" HorizontalAlignment="Left" Height="38"/>
+            </StackPanel>
+
+        </Grid>
+
+        <Separator Height="10" Margin="0 2 0 0"/>
+
+        <Button Content="Сохранить" Command="{Binding Save}" Margin="0 0 7 0" Background="#03A6AA" Foreground="White" HorizontalAlignment="Right" />
+
+    </StackPanel>
+</Window>

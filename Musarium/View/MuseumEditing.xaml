@@ -1,0 +1,106 @@
+﻿<Page x:Class="Musarium.View.MuseumEditing"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+						xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+						xmlns:bing="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+      xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+      xmlns:local="clr-namespace:Musarium.View"
+      xmlns:interactivity="http://schemas.microsoft.com/expression/2010/interactivity"
+      mc:Ignorable="d" 
+      d:DesignHeight="520" d:DesignWidth="800"
+      Title="ProfileEditing">
+    <Page.Resources>
+        <Style TargetType="Label" x:Key="ProfileEdit">
+            <Setter Property="Foreground" Value="#2D3E50"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="White" Margin="30 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.ColumnSpan="2" Content="Редактирование профиля" HorizontalContentAlignment="Center" FontSize="25" Foreground="#2D3E50" FontWeight="Bold"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10 0">
+            <Label Content="Название музея" Style="{StaticResource ProfileEdit}"/>
+
+            <Border BorderBrush="LightGray" BorderThickness="2">
+                <TextBox Text="{Binding Museum.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="2"/>
+            </Border>
+
+            <Label Margin="0 10 0 0" Content="Краткая информация о музее" Style="{StaticResource ProfileEdit}"/>
+
+            <Border BorderBrush="LightGray" BorderThickness="2" Height="150">
+                <TextBox Margin="2" Text="{Binding Museum.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"/>
+            </Border>
+
+            <Label Margin="0 10 0 0" Content="Телефон музея" Style="{StaticResource ProfileEdit}"/>
+
+            <Border BorderBrush="LightGray" BorderThickness="2">
+                <TextBox Text="{Binding Museum.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="2"/>
+            </Border>
+
+            <Label Margin="0 10 0 0" Content="Адрес музея" Style="{StaticResource ProfileEdit}"/>
+
+            <Border BorderBrush="LightGray" BorderThickness="2">
+                <TextBox Text="{Binding Museum.Adress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="2"/>
+            </Border>
+
+            <StackPanel Margin="0 15 0 0" Orientation="Horizontal" Cursor="Hand" HorizontalAlignment="Left">
+                <interactivity:Interaction.Triggers>
+                    <interactivity:EventTrigger EventName="MouseUp">
+                        <interactivity:InvokeCommandAction Command="{Binding ToMuseumDeveloper}"/>
+                    </interactivity:EventTrigger>
+                </interactivity:Interaction.Triggers>
+                <material:PackIcon Kind="ArrowLeft" Width="17" Height="17" Margin="0 3 0 0"/>
+                <Label Content="Вернуться в профиль музея" Foreground="#03A6AA" FontWeight="Bold" Padding="0 3 0 0"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10 0">
+            <Label Content="Веб сайт музея" Style="{StaticResource ProfileEdit}"/>
+
+            <Border BorderBrush="LightGray" BorderThickness="2">
+                <TextBox Text="{Binding Museum.WebSite, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="2"/>
+            </Border>
+
+            <Separator Margin="0 10 0 10" />
+
+            <bing:Map CredentialsProvider="eLuL2PZapgx4D2vS7Kqe~od5P4iK7p9ddyG9mmJ8nVg~ArF1qzf8-FieeGj-EVPFCiMRoLKPRu8i5p7pQWxZQIS1I2nOuavBsPLPVCl4o2TS" Height="250"
+                                Name="MuseumLocation" Margin="4" Mode="Road" Center="{Binding Museum.Point, UpdateSourceTrigger=PropertyChanged}" ZoomLevel="14"
+                      MouseDoubleClick="MuseumLocation_MouseDoubleClick">
+                <bing:Map.Children>
+                    <bing:Pushpin Name="push" Location="{Binding Museum.Point, UpdateSourceTrigger=PropertyChanged}"/>
+                </bing:Map.Children>
+            </bing:Map>
+
+            <Separator Margin="0 10 0 0"/>
+
+            <Grid Margin="0 10 0 0" Background="#EBF0F1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Content="Радиус работы приложения (в метрах)"/>
+                <TextBox Grid.Column="1" Background="White" Text="{Binding Museum.Radius, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="2"/>
+            </Grid>
+
+            <Label Height="100" Visibility="Hidden"/>
+
+            <Button Content="Сохранить" Foreground="White" Background="#2AC7ED" Height="40" Margin="0 10 0 0"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom" Command="{Binding SaveChanges}"
+                    CommandParameter="{Binding ElementName=push, Path=Location, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,112 @@
+﻿<Window x:Class="Musarium.View.QuestionType"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+								xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+								xmlns:interactivity="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:Musarium.View"
+        mc:Ignorable="d"
+        Title="QuestionSelWindow" Height="300" Width="820" WindowStartupLocation="CenterOwner" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="ProfileEdit">
+            <Setter Property="Foreground" Value="#2D3E50"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <material:PackIcon HorizontalAlignment="Right" VerticalAlignment="Center" MouseUp="PackIcon_MouseUp"
+                               Foreground="LightGray"  Background="Transparent" Kind="Close" Height="20" Width="20" Cursor="Hand">
+            </material:PackIcon>
+        </Grid>
+
+        <Border Grid.Row="1" Margin="5" BorderThickness="1" BorderBrush="LightGray">
+
+            <UniformGrid Background="White" Columns="4">
+                <Border Margin="2" BorderBrush="LightGray" BorderThickness="2" Cursor="Hand">
+                    <Border.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding QuestionWithTextBoxCom}" CommandParameter="{Binding ElementName=Type1, Path=Content}"/>
+                    </Border.InputBindings>
+                    <StackPanel>
+                        <Label Content="1" Visibility="Collapsed" Name="Type1"/>
+
+                        <material:PackIcon Kind="Textbox" Foreground="Black" HorizontalAlignment="Center" Height="80" Width="80"/>
+
+                        <Label Content="Вопрос" Style="{StaticResource ProfileEdit}" Margin="0 10 0 0" HorizontalAlignment="Center"/>
+
+                        <TextBlock Margin="3 0" TextWrapping="Wrap" FontSize="15" Foreground="#2D3E50" TextAlignment="Center"> <Italic FontSize="16">(Текстовое поле)</Italic>
+									Посетитель получит вопрос и должен <Bold>ответить строкой, словом или числом</Bold>
+                        </TextBlock>
+
+                    </StackPanel>
+                </Border>
+
+                <Border Margin="2" BorderBrush="LightGray" BorderThickness="2" Cursor="Hand">
+                    <Border.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding QuestionWithTextBoxCom}" CommandParameter="{Binding ElementName=Type2, Path=Content}"/>
+                    </Border.InputBindings>
+                    <StackPanel>
+
+                        <Label Content="2" Visibility="Collapsed" Name="Type2"/>
+
+                        <material:PackIcon Kind="FormatListBulleted" Foreground="Black" HorizontalAlignment="Center" Height="80" Width="80"/>
+
+                        <Label Content="Вопрос" Style="{StaticResource ProfileEdit}" Margin="0 10 0 0" HorizontalAlignment="Center"/>
+
+                        <TextBlock Margin="3 0" TextWrapping="Wrap" Foreground="#2D3E50" TextAlignment="Center" FontSize="15"> <Italic FontSize="16">(Одиночный выбор)</Italic>
+									Посетитель получит вопрос и должен выбрать <Bold>один из вариантов</Bold> ответа
+                        </TextBlock>
+
+                    </StackPanel>
+                </Border>
+
+                <Border Margin="2" BorderBrush="LightGray" BorderThickness="2"  Cursor="Hand">
+                    <Border.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding QuestionWithTextBoxCom}" CommandParameter="{Binding ElementName=Type3, Path=Content}"/>
+                    </Border.InputBindings>
+                    <StackPanel>
+                        <Label Content="3" Visibility="Collapsed" Name="Type3"/>
+
+                        <material:PackIcon Kind="FormatListChecks" Foreground="Black" HorizontalAlignment="Center" Height="80" Width="80"/>
+
+                        <Label Content="Вопрос" Style="{StaticResource ProfileEdit}" Margin="0 10 0 0" HorizontalAlignment="Center"/>
+
+                        <TextBlock Margin="3 0" Foreground="#2D3E50" TextWrapping="Wrap" FontSize="15" TextAlignment="Center">
+									<Italic FontSize="16">(Множественный выбор)</Italic> Посетитель получит вопрос и должен выбрать <Bold>несколько вариантов</Bold> ответа
+                        </TextBlock>
+
+                    </StackPanel>
+                </Border>
+
+                <Border Margin="2" BorderBrush="LightGray" BorderThickness="2" Cursor="Hand">
+                    <Border.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding QuestionWithTextBoxCom}" CommandParameter="{Binding ElementName=Type4, Path=Content}"/>
+                    </Border.InputBindings>
+                    <StackPanel>
+                        <Label Content="4" Visibility="Collapsed" Name="Type4"/>
+
+                        <material:PackIcon Kind="QrcodeScan" Foreground="Black" HorizontalAlignment="Center" Height="80" Width="80"/>
+
+                        <Label Content="Задание" Style="{StaticResource ProfileEdit}" Margin="0 10 0 0" HorizontalAlignment="Center"/>
+
+                        <TextBlock Margin="23 0" Foreground="#2D3E50" TextWrapping="Wrap" FontSize="15" TextAlignment="Center">
+									<Italic FontSize="16">(QR-Код)</Italic>
+									Посетитель должен выполнить полученное задание и <Bold>отсканировать QR-код</Bold>
+                        </TextBlock>
+
+                    </StackPanel>
+                </Border>
+
+            </UniformGrid>
+        </Border>
+    </Grid>
+</Window>

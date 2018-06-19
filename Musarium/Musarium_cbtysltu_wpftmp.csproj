@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E528F13-C628-4240-9138-CE02A125F4CB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Musarium</RootNamespace>
+    <AssemblyName>Musarium</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\AppData.cs" />
+    <Compile Include="Common\OperationsResults.cs" />
+    <Compile Include="Common\PasswordBoxHelper.cs" />
+    <Compile Include="Common\RegisterData.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Interfaces\IAccountService.cs" />
+    <Compile Include="Interfaces\IAddEditView.cs" />
+    <Compile Include="Interfaces\IAddEditViewModel.cs" />
+    <Compile Include="Interfaces\IAnswerRepository.cs" />
+    <Compile Include="Interfaces\IAuthorizationView.cs" />
+    <Compile Include="Interfaces\IAuthorizationViewModel.cs" />
+    <Compile Include="Interfaces\IDataService.cs" />
+    <Compile Include="Interfaces\ILoginView.cs" />
+    <Compile Include="Interfaces\ILogInViewModel.cs" />
+    <Compile Include="Interfaces\IMusariumService.cs" />
+    <Compile Include="Interfaces\IMusariumView.cs" />
+    <Compile Include="Interfaces\IMusariumViewModel.cs" />
+    <Compile Include="Interfaces\IMuseumDeveloperView.cs" />
+    <Compile Include="Interfaces\IMuseumDeveloperViewModel.cs" />
+    <Compile Include="Interfaces\IMuseumEditingView.cs" />
+    <Compile Include="Interfaces\IMuseumEditingViewModel.cs" />
+    <Compile Include="Interfaces\IPrizeRepository.cs" />
+    <Compile Include="Interfaces\IQuestionRepository.cs" />
+    <Compile Include="Interfaces\IQuestRepository.cs" />
+    <Compile Include="Interfaces\IRegistrationView.cs" />
+    <Compile Include="Interfaces\IRegistrationViewModel.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IStatisticRepository.cs" />
+    <Compile Include="Interfaces\ICityRepository.cs" />
+    <Compile Include="Interfaces\ITaskInfoAboutQuestView.cs" />
+    <Compile Include="Interfaces\ITaskInfoAboutQuestViewModel.cs" />
+    <Compile Include="Model\Question.cs" />
+    <Compile Include="Repositories\AnswerRepository.cs" />
+    <Compile Include="Repositories\CityRepository.cs" />
+    <Compile Include="Repositories\MusariumRepository.cs" />
+    <Compile Include="Repositories\PrizeRepository.cs" />
+    <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Repositories\QuestRepository.cs" />
+    <Compile Include="Repositories\StatisticRepository.cs" />
+    <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\DataService.cs" />
+    <Compile Include="ViewModel\AddEditQuestViewModel.cs" />
+    <Compile Include="ViewModel\AuthorizationViewModel.cs" />
+    <Compile Include="ViewModel\LogInViewModel.cs" />
+    <Compile Include="ViewModel\MusariumViewModel.cs" />
+    <Compile Include="ViewModel\MuseumDeveloperViewModel.cs" />
+    <Compile Include="ViewModel\MuseumEditingViewModel.cs" />
+    <Compile Include="ViewModel\RegistrationViewModel.cs" />
+    <Compile Include="ViewModel\TaskInfoAboutQuestViewModel.cs" />
+    <Compile Include="View\AddEditQuest.xaml.cs">
+      <DependentUpon>AddEditQuest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Authorization.xaml.cs">
+      <DependentUpon>Authorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InfoAboutQuest.xaml.cs">
+      <DependentUpon>InfoAboutQuest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Musarium.xaml.cs">
+      <DependentUpon>Musarium.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MuseumDeveloper.xaml.cs">
+      <DependentUpon>MuseumDeveloper.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MuseumEditing.xaml.cs">
+      <DependentUpon>MuseumEditing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\QuestInfo.xaml.cs">
+      <DependentUpon>QuestInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TaskInfoAboutQuest.xaml.cs">
+      <DependentUpon>TaskInfoAboutQuest.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\NotifyableObject.cs" />
+    <Compile Include="Interfaces\IMusariumRepository.cs" />
+    <Compile Include="Model\Answer.cs" />
+    <Compile Include="Model\City.cs" />
+    <Compile Include="Model\Museum.cs" />
+    <Compile Include="Model\Prize.cs" />
+    <Compile Include="Model\Quest.cs" />
+    <Compile Include="Model\Statistic.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ReferencePath Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\packages\Autofac.4.8.1\lib\net45\Autofac.dll" />
+    <ReferencePath Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll" />
+    <ReferencePath Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\packages\MaterialDesignThemes.2.4.0.1044\lib\net45\MaterialDesignThemes.Wpf.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Microsoft.CSharp.dll" />
+    <ReferencePath Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll" />
+    <ReferencePath Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\mscorlib.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Configuration.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Data.DataSetExtensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Data.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Net.Http.dll" />
+    <ReferencePath Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\WindowsBase.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\Musarium\obj\Debug\View\AddEditQuest.g.cs" />
+    <Compile Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\Musarium\obj\Debug\View\Authorization.g.cs" />
+    <Compile Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\Musarium\obj\Debug\View\InfoAboutQuest.g.cs" />
+    <Compile Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\Musarium\obj\Debug\View\Login.g.cs" />
+    <Compile Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\Musarium\obj\Debug\View\Musarium.g.cs" />
+    <Compile Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\Musarium\obj\Debug\View\MuseumDeveloper.g.cs" />
+    <Compile Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\Musarium\obj\Debug\View\MuseumEditing.g.cs" />
+    <Compile Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\Musarium\obj\Debug\View\QuestInfo.g.cs" />
+    <Compile Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\Musarium\obj\Debug\View\Registration.g.cs" />
+    <Compile Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\Musarium\obj\Debug\View\TaskInfoAboutQuest.g.cs" />
+    <Compile Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\Musarium\obj\Debug\App.g.cs" />
+    <Compile Include="\\ITSTEP\students redirection$\Murs_zn54\Desktop\Musarium\Musarium\obj\Debug\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
+</Project>
