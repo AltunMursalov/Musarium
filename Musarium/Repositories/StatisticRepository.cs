@@ -16,9 +16,9 @@ namespace Musarium.Repositories {
 
         public bool OpenConnection() {
             try {
-                factory = DbProviderFactories.GetFactory(AppData.ItstepAcademy.ProviderName);
+                factory = DbProviderFactories.GetFactory(AppData.MyConnection.ProviderName);
                 connection = factory.CreateConnection();
-                connection.ConnectionString = AppData.ItstepAcademy.ConnectionString;
+                connection.ConnectionString = AppData.MyConnection.ConnectionString;
                 connection.Open();
                 return true;
             }

@@ -30,7 +30,7 @@
         <Label Style="{StaticResource ProfileEdit}" Content="Вопрос"/>
 
         <Border BorderBrush="LightGray" BorderThickness="2" Height="80" Margin="10 0">
-            <TextBox Margin="5" Text="{Binding Question.Description, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" AcceptsReturn="True" 
+            <TextBox Name="Question" Margin="5" Text="{Binding Question.Description, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" AcceptsReturn="True" 
 																					VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"/>
         </Border>
 
@@ -107,7 +107,7 @@
         </StackPanel>
 
         <Border BorderBrush="LightGray" BorderThickness="2" Height="60" Margin="10 0">
-            <TextBox Margin="2" Text="{Binding Question.Hint}" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"/>
+            <TextBox Name="Hint" Margin="2" Text="{Binding Question.Hint}" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"/>
         </Border>
 
         <Separator Height="10" Margin="0 2 0 0"/>

@@ -17,17 +17,22 @@ namespace Musarium.Model {
         }
 
         private bool isRight;
-         
+
         public bool IsRight {
             get { return isRight; }
             set { isRight = value; base.OnChanged(); }
         }
 
         private int questionId;
-
         public int QuestionID {
             get { return questionId; }
             set { questionId = value; base.OnChanged(); }
+        }
+
+        private int type;
+        public int Type {
+            get { return type; }
+            set { type = value; base.OnChanged(); }
         }
     }
 }

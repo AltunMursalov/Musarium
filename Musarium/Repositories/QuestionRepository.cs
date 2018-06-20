@@ -4,9 +4,6 @@ using Musarium.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Musarium.Repositories {
     public class QuestionRepository : IQuestionRepository {
@@ -16,9 +13,9 @@ namespace Musarium.Repositories {
 
         public bool OpenConnection() {
             try {
-                factory = DbProviderFactories.GetFactory(AppData.ItstepAcademy.ProviderName);
+                factory = DbProviderFactories.GetFactory(AppData.MyConnection.ProviderName);
                 connection = factory.CreateConnection();
-                connection.ConnectionString = AppData.ItstepAcademy.ConnectionString;
+                connection.ConnectionString = AppData.MyConnection.ConnectionString;
                 connection.Open();
                 return true;
             }

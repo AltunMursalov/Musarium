@@ -49,21 +49,32 @@ namespace Musarium.Services {
             try {
                 this.questRepository.OpenConnection();
                 var questResult = questRepository.CreateQuest(quest, prize, this.AppData.CurrentMuseum);
-                this.questRepository.CloseConnection();
                 this.questionRepository.OpenConnection();
                 this.answerRepository.OpenConnection();
                 foreach (var question in questions) {
                     question.QuestId = questResult.Id;
                     var questionResult = this.questionRepository.CreateQuestion(question);
                     foreach (var answer in answers) {
-                        answer.QuestionID = questionResult.Id;
-                        this.answerRepository.CreateAnswer(answer);
+                        if (question.QuestionType == answer.Type) {
+                            answer.QuestionID = questionResult.Id;
+                            this.answerRepository.CreateAnswer(answer);
+                        }
                     }
                 }
                 this.questionRepository.CloseConnection();
                 this.answerRepository.CloseConnection();
                 this.prizeRepository.OpenConnection();
-                this.prizeRepository.CreatePrize(prize);
+                var isPrizeExist = this.prizeRepository.IsPrizeExist(prize.Id);
+                if (isPrizeExist) {
+                    questResult.PrizeId = prize.Id;
+                    this.questRepository.SetPrize(questResult.Id, prize.Id);
+                } else {
+                    var insertedPrize = this.prizeRepository.CreatePrize(prize);
+                    questResult.PrizeId = insertedPrize.Id;
+                    this.questRepository.SetPrize(questResult.Id, insertedPrize.Id);
+                }
+                this.questRepository.CloseConnection();
+                this.prizeRepository.CloseConnection();
                 return true;
             }
             catch (Exception) {

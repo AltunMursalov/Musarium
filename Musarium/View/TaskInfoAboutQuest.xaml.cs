@@ -22,6 +22,11 @@ namespace Musarium.View {
             this.Visibility = Visibility.Visible;
         }
 
+        public void Clear() {
+            this.QuestTitle.Clear();
+            this.Description.Clear();
+        }
+
         public void ShowAlert(string text, string caption) {
             MessageBox.Show(text, caption);
         }

@@ -7,5 +7,6 @@ namespace Musarium.Interfaces {
         Quest CreateQuest(Quest quest, Prize prize, Museum museum);
         IEnumerable<Quest> GetMuseumQuests(int museumId);
         bool RemoveQuest(int questId);
+        void SetPrize(int questId, int prizeId);
     }
 } 

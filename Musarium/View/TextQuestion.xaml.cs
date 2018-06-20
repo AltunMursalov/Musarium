@@ -21,6 +21,12 @@ namespace Musarium.View {
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
             this.DragMove();
         }
+
+        public void Clear() {
+            this.Question.Clear();
+            this.Answer.Clear();
+            this.Hint.Clear();
+        }
     }
 }
  

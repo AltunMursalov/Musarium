@@ -15,5 +15,9 @@ namespace Musarium.View {
         public void ShowAlert(string text, string caption) {
             MessageBox.Show(text, caption);
         }
+
+        public void Clear() {
+            this.PrizeName.Clear();
+        }
     }
 } 

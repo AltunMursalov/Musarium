@@ -19,7 +19,7 @@
         <Label Content="Для начала необходимо указать основную информацию о квесте." FontSize="17" HorizontalAlignment="Center"/>
         <Label Style="{StaticResource ProfileEdit}" Content="Название"/>
         <Border BorderThickness="1" BorderBrush="LightGray">
-            <TextBox Margin="2" Text="{Binding Quest.Title}"/>
+            <TextBox Name="QuestTitle"  Margin="2" Text="{Binding Quest.Title}"/>
         </Border>
 
         <Grid>
@@ -32,7 +32,7 @@
             <StackPanel Grid.Column="0" Grid.ColumnSpan="2">
                 <Label Style="{StaticResource ProfileEdit}" Content="Описание"/>
                 <Border BorderBrush="LightGray" BorderThickness="2" Height="200">
-                    <TextBox Margin="2" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" 
+                    <TextBox Name="Description" Margin="2" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" 
                              VerticalContentAlignment="Top" Text="{Binding Quest.Description}"/>
                 </Border>
             </StackPanel>

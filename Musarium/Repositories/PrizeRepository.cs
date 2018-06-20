@@ -13,13 +13,26 @@ namespace Musarium.Repositories {
 
         public bool OpenConnection() {
             try {
-                factory = DbProviderFactories.GetFactory(AppData.ItstepAcademy.ProviderName);
+                factory = DbProviderFactories.GetFactory(AppData.MyConnection.ProviderName);
                 connection = factory.CreateConnection();
-                connection.ConnectionString = AppData.ItstepAcademy.ConnectionString;
+                connection.ConnectionString = AppData.MyConnection.ConnectionString;
                 connection.Open();
                 return true;
             }
             catch (DbException) {
+                return false;
+            }
+        }
+
+        public bool IsPrizeExist(int id) {
+            DbCommand command = connection.CreateCommand();
+            var _id = this.AppData.GetParameter("Id", id, System.Data.DbType.Int32, "Id", command);
+            command.Parameters.Add(_id);
+            command.CommandText = "SELECT Id FROM Prizes WHERE Id = @Id";
+            var result = command.ExecuteScalar();
+            if(result != null) {
+                return true;
+            } else {
                 return false;
             }
         }

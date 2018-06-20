@@ -2,6 +2,7 @@
 using Musarium.Interfaces;
 using Autofac;
 using System.Windows.Input;
+using System;
 
 namespace Musarium.ViewModel {
     public class AddEditQuestViewModel : NotifyableObject, IAddEditViewModel {
@@ -52,7 +53,7 @@ namespace Musarium.ViewModel {
                                 this.View.ShowAlert("CREATED", "INFO");
                             }
                         },
-                        (param) => { return true; }
+                        (param) => { return this.PrizeShow.Prize != null; }
                     );
                 }
                 return this.createQuest;
@@ -65,18 +66,22 @@ namespace Musarium.ViewModel {
                 if (this.next is null) {
                     this.next = new RelayCommand(
                         (param) => {
-                            if (this.viewNumber == 1) {
+                            if (this.viewNumber == 1 && !String.IsNullOrEmpty(this.TaskInfoAboutQuest.Quest.Title) &&
+                                !String.IsNullOrEmpty(this.TaskInfoAboutQuest.Quest.Description)) {
                                 this.QuestionTask.View.Show();
                                 this.PrizeShow.View.Hide();
                                 this.TaskInfoAboutQuest.View.Hide();
+                                this.TaskInfoAboutQuest.View.Clear();
                                 this.viewNumber++;
                             } else
-                            if (this.viewNumber == 2) {
+                            if (this.viewNumber == 2 && this.QuestionTask.Answers.Count > 0 && this.QuestionTask.Questions.Count > 0) {
                                 this.PrizeShow.View.Show();
                                 this.QuestionTask.View.Hide();
                                 this.TaskInfoAboutQuest.View.Hide();
                                 this.viewNumber = 1;
                                 this.View.ChangedButtonToDone();
+                            } else {
+                                this.View.ShowAlert("Please fill the data!", "Error");
                             }
                         },
                         (param) => { return true; }

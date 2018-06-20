@@ -42,7 +42,7 @@
                 <Label Style="{StaticResource ProfileEdit}" Content="Название приза"/>
 
                 <Border BorderThickness="1" BorderBrush="LightGray">
-                    <TextBox Margin="5" Text="{Binding Prize.PrizeName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Name="PrizeName"  Margin="5" Text="{Binding Prize.PrizeName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </Border>
 
             </StackPanel>

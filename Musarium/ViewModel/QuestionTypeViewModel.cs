@@ -31,6 +31,7 @@ namespace Musarium.ViewModel {
                                 var manyAnswerQuestion = this.AppData.Container.Resolve<IManyAnswerQuestionViewModel>();
                                 manyAnswerQuestion.Question.QuestionType = type;
                                 manyAnswerQuestion.View.ShowDialog();
+                                
                             }
                         });
                 }

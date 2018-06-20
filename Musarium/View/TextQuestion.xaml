@@ -30,7 +30,7 @@
 		<Label Style="{StaticResource ProfileEdit}" Content="Вопрос"/>
 
 		<Border BorderBrush="LightGray" BorderThickness="2" Height="160" Margin="10 0">
-			<TextBox Text="{Binding Question.Description, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Margin="5" TextWrapping="Wrap" 
+			<TextBox Name="Question" Text="{Binding Question.Description, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Margin="5" TextWrapping="Wrap" 
                      AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"/>
 		</Border>
 
@@ -67,7 +67,7 @@
 		<Label Style="{StaticResource ProfileEdit}" Content="Ответ"/>
 
 		<Border BorderBrush="LightGray" BorderThickness="2" Height="60" Margin="10 0">
-            <TextBox Text="{Binding Answer.QuestionAnswer, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Margin="2" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"/>
+            <TextBox Name="Answer" Text="{Binding Answer.QuestionAnswer, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Margin="2" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"/>
 		</Border>
 
 		<StackPanel Margin="0 5 0 0" Orientation="Horizontal">
@@ -76,7 +76,7 @@
 		</StackPanel>
 
 		<Border BorderBrush="LightGray" BorderThickness="2" Height="60" Margin="10 0">
-			<TextBox Text="{Binding Question.Hint, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Margin="2" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"/>
+			<TextBox Name="Hint" Text="{Binding Question.Hint, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Margin="2" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"/>
 		</Border>
 
 		<Separator Height="10" Margin="0  20 0 0"/>

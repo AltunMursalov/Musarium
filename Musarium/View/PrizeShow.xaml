@@ -16,7 +16,7 @@
             <Separator Height="10"/>
 
             <StackPanel Orientation="Horizontal">
-                <CheckBox Name="IsHavePrize" VerticalAlignment="Center" Background="Black"/>
+                <CheckBox Name="IsHavePrize" VerticalAlignment="Center" Background="Black" IsEnabled="False"/>
                 <Label Visibility="Hidden" Width="80"/>
                 <Label Content="Без приза"/>
             </StackPanel>

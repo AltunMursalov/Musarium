@@ -14,9 +14,9 @@ namespace Musarium.Repositories {
 
         public bool OpenConnection() {
             try {
-                factory = DbProviderFactories.GetFactory(AppData.ItstepAcademy.ProviderName);
+                factory = DbProviderFactories.GetFactory(AppData.MyConnection.ProviderName);
                 connection = factory.CreateConnection();
-                connection.ConnectionString = AppData.ItstepAcademy.ConnectionString;
+                connection.ConnectionString = AppData.MyConnection.ConnectionString;
                 connection.Open();
                 return true;
             }
@@ -25,7 +25,7 @@ namespace Musarium.Repositories {
             }
         }
 
-        public void CloseConnection() { 
+        public void CloseConnection() {
             if (connection != null)
                 this.connection.Close();
         }
@@ -154,92 +154,12 @@ namespace Musarium.Repositories {
             catch (DbException) {
                 return false;
             }
-            
-            //DbTransaction transaction = connection.BeginTransaction();
-            //try {
-            //    DbCommand getId = connection.CreateCommand();
-            //    DbCommand command = connection.CreateCommand();
-            //    command.Transaction = transaction;
-            //    getId.Transaction = transaction;
-            //    command.Transaction = transaction;
-            //    var _cityName = AppData.GetParameter("CityName", museum.CityName, DbType.String, "CityName", getId);
-            //    getId.Parameters.Add(_cityName);
-            //    getId.CommandText = "SELECT Id FROM Cities WHERE CityName = @CityName";
-            //    var result = getId.ExecuteScalar();
-                
-            //    if (result != null) {
-            //        command.ExecuteNonQuery();
-            //        var _id = AppData.GetParameter("Id", museum.Id, DbType.Int32, "Id", command);
-            //        var _name = AppData.GetParameter("Name", museum.Title, DbType.String, "Title", command);
-            //        var _address = AppData.GetParameter("Adress", museum.Adress, DbType.String, "Adress", command);
-            //        var _desc = AppData.GetParameter("Description", museum.Description, DbType.String, "Description", command);
-            //        var _cityId = AppData.GetParameter("CityId", (int)result, DbType.Int32, "CityId", command);
-            //        var _phone = AppData.GetParameter("Phone", museum.Phone, DbType.String, "Phone", command);
-            //        var _website = AppData.GetParameter("WebSite", museum.WebSite, DbType.String, "WebSite", command);
-            //        var _latitude = AppData.GetParameter("Latitude", museum.Point.Latitude, DbType.Single, "Latitude", command);
-            //        var _longitude = AppData.GetParameter("Longitude", museum.Point.Longitude, DbType.Single, "Longitude", command);
-            //        var _radius = AppData.GetParameter("Radius", museum.Radius, DbType.Single, "Radius", command);
-            //        command.Parameters.Add(_name);
-            //        command.Parameters.Add(_address);
-            //        command.Parameters.Add(_desc);
-            //        command.Parameters.Add(_phone);
-            //        command.Parameters.Add(_website);
-            //        command.Parameters.Add(_id);
-            //        command.Parameters.Add(_latitude);
-            //        command.Parameters.Add(_longitude);
-            //        command.Parameters.Add(_radius);
-            //        command.CommandText = "UPDATE Museums SET Title = @Name, Address = @Adress, Description = @Description, Phone = @Phone, WebSite = @WebSite, " +
-            //                              "Latitude = @Latitude, Longitude = @Longitude, Radius = @Radius WHERE Id = @Id";
-            //        transaction.Commit();
-            //        return true;
-            //    } else {
-            //        DbCommand createCity = connection.CreateCommand();
-            //        DbCommand getLastId = connection.CreateCommand();
-            //        getLastId.Transaction = transaction;
-            //        getLastId.CommandText = "SELECT MAX(Id) FROM Cities";
-            //        int lastId = (int)getLastId.ExecuteScalar();
-            //        var __cityName = AppData.GetParameter("CityName", museum.CityName, DbType.String, "CityName", createCity);
-            //        var _id = AppData.GetParameter("Id", museum.Id, DbType.Int32, "Id", command);
-            //        var _name = AppData.GetParameter("Name", museum.Title, DbType.String, "Title", command);
-            //        var _address = AppData.GetParameter("Adress", museum.Adress, DbType.String, "Adress", command);
-            //        var _desc = AppData.GetParameter("Description", museum.Description, DbType.String, "Description", command);
-            //        var _cityId = AppData.GetParameter("CityId", lastId + 1, DbType.Int32, "CityId", command);
-            //        var _phone = AppData.GetParameter("Phone", museum.Phone, DbType.String, "Phone", command);
-            //        var _website = AppData.GetParameter("WebSite", museum.WebSite, DbType.String, "WebSite", command);
-            //        var _latitude = AppData.GetParameter("Latitude", museum.Point.Latitude, DbType.Single, "Latitude", command);
-            //        var _longitude = AppData.GetParameter("Longitude", museum.Point.Longitude, DbType.Single, "Longitude", command);
-            //        var _radius = AppData.GetParameter("Radius", museum.Radius, DbType.Single, "Radius", command);
-            //        command.Parameters.Add(_name);
-            //        command.Parameters.Add(_address);
-            //        command.Parameters.Add(_desc);
-            //        command.Parameters.Add(_cityId);
-            //        command.Parameters.Add(_phone);
-            //        command.Parameters.Add(_website);
-            //        command.Parameters.Add(_id);
-            //        command.Parameters.Add(_latitude);
-            //        command.Parameters.Add(_longitude);
-            //        command.Parameters.Add(_radius);
-            //        command.CommandText = "UPDATE Museums SET Title = @Name, Address = @Adress, Description = @Description, Phone = @Phone, WebSite = @WebSite, " +
-            //                              "Latitude = @Latitude, Longitude = @Longitude, Radius = @Radius, CityId = @CityId WHERE Id = @Id";
-            //        createCity.Parameters.Add(__cityName);
-            //        createCity.Transaction = transaction;
-            //        createCity.CommandText = "INSERT INTO Cities (CityName) VALUES (@CityName)";
-            //        createCity.ExecuteNonQuery();
-            //        command.ExecuteNonQuery();
-            //        transaction.Commit();
-            //        return true;
-            //    }
-            //}
-            //catch (DbException ex) {
-            //    transaction.Rollback();
-            //    return false;
-            //}
         }
 
         public Museum CreateMuseum(string login, string password, string city) {
+            DbTransaction transaction = connection.BeginTransaction();
             try {
                 DbCommand getId = connection.CreateCommand();
-                DbTransaction transaction = connection.BeginTransaction();
                 getId.Transaction = transaction;
                 int cityId = 0;
                 var _city = AppData.GetParameter("CityName", city, DbType.String, "CityName", getId);
@@ -249,8 +169,13 @@ namespace Musarium.Repositories {
                 if (result != null) {
                     cityId = (int)result;
                 } else {
-                    transaction.Rollback();
-                    throw new Exception();
+                    DbCommand createCity = connection.CreateCommand();
+                    createCity.Transaction = transaction;
+                    var _cityName = AppData.GetParameter("CityName", city, DbType.String, "CityName", createCity);
+                    createCity.Parameters.Add(_cityName);
+                    createCity.CommandText = "INSERT INTO Cities (CityName) VALUES (@CityName)";
+                    createCity.ExecuteNonQuery();
+                    cityId = (int)getId.ExecuteScalar();
                 }
                 if (cityId != 0) {
                     DbCommand add = connection.CreateCommand();

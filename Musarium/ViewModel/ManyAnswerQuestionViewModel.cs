@@ -18,6 +18,7 @@ namespace Musarium.ViewModel {
             this.appData = AppData.GetInstance();
             this.Answers = new ObservableCollection<Answer> {
                 new Answer {
+                    Type = 2,
                     IsRight = false
                 }
             };
@@ -41,10 +42,11 @@ namespace Musarium.ViewModel {
                     this.newAnswer = new RelayCommand(
                         (param) => {
                             this.Answers.Add(new Answer {
-                                IsRight = false
+                                IsRight = false,
+                                Type = 2
                             });
                         },
-                        (param) => { return this.Answers.Count < 7; }
+                        (param) => { return this.Answers.Count < 6; }
                     );
                 }
                 return this.newAnswer;
@@ -65,6 +67,7 @@ namespace Musarium.ViewModel {
                                 }
                             }
                             createQuestions.Questions.Add(this.Question);
+                            this.View.Clear();
                             this.View.Hide();
                         },
                         (param) => {
