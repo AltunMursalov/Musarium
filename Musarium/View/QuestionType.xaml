@@ -34,7 +34,7 @@
             <UniformGrid Background="White" Columns="4">
                 <Border Margin="2" BorderBrush="LightGray" BorderThickness="2" Cursor="Hand">
                     <Border.InputBindings>
-                        <MouseBinding MouseAction="LeftClick" Command="{Binding QuestionWithTextBoxCom}" CommandParameter="{Binding ElementName=Type1, Path=Content}"/>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding Choose}" CommandParameter="{Binding ElementName=Type1, Path=Content}"/>
                     </Border.InputBindings>
                     <StackPanel>
                         <Label Content="1" Visibility="Collapsed" Name="Type1"/>
@@ -52,7 +52,7 @@
 
                 <Border Margin="2" BorderBrush="LightGray" BorderThickness="2" Cursor="Hand">
                     <Border.InputBindings>
-                        <MouseBinding MouseAction="LeftClick" Command="{Binding QuestionWithTextBoxCom}" CommandParameter="{Binding ElementName=Type2, Path=Content}"/>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding Choose}" CommandParameter="{Binding ElementName=Type2, Path=Content}"/>
                     </Border.InputBindings>
                     <StackPanel>
 
@@ -71,7 +71,7 @@
 
                 <Border Margin="2" BorderBrush="LightGray" BorderThickness="2"  Cursor="Hand">
                     <Border.InputBindings>
-                        <MouseBinding MouseAction="LeftClick" Command="{Binding QuestionWithTextBoxCom}" CommandParameter="{Binding ElementName=Type3, Path=Content}"/>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding Choose}" CommandParameter="{Binding ElementName=Type3, Path=Content}"/>
                     </Border.InputBindings>
                     <StackPanel>
                         <Label Content="3" Visibility="Collapsed" Name="Type3"/>
@@ -89,7 +89,7 @@
 
                 <Border Margin="2" BorderBrush="LightGray" BorderThickness="2" Cursor="Hand">
                     <Border.InputBindings>
-                        <MouseBinding MouseAction="LeftClick" Command="{Binding QuestionWithTextBoxCom}" CommandParameter="{Binding ElementName=Type4, Path=Content}"/>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding Choose}" CommandParameter="{Binding ElementName=Type4, Path=Content}"/>
                     </Border.InputBindings>
                     <StackPanel>
                         <Label Content="4" Visibility="Collapsed" Name="Type4"/>

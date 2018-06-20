@@ -3,6 +3,6 @@
 namespace Musarium.Interfaces {
     public interface IQuestionTypeViewModel {
         IQuestionTypeView View { get; }
-        ICommand QuestionWithTextBoxCom { get; }
+        ICommand Choose { get; }
     }
 } 

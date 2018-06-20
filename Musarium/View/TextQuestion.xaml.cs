@@ -14,6 +14,10 @@ namespace Musarium.View {
             DataContext = viewModel;
         }
 
+        public void ShowAlert(string text, string caption) {
+            MessageBox.Show(text, caption);
+        }
+
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
             this.DragMove();
         }

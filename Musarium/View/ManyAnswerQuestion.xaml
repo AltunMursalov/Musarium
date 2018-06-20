@@ -81,11 +81,11 @@
                                 <ColumnDefinition Width="280"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <RadioButton GroupName="IsRight" Grid.Column="0" VerticalAlignment="Top"
+                            <RadioButton GroupName="IsRight" Grid.Column="0" VerticalAlignment="Center"
                                          IsChecked="{Binding IsRight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <TextBox Grid.Column="1" Margin="3 0" AcceptsReturn="True" TextWrapping="Wrap" 
-                                     VerticalAlignment="Top" Height="30" Text="{Binding Answer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                     VerticalAlignment="Top" Height="30" Text="{Binding QuestionAnswer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <material:PackIcon Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="LightGray"  Background="Transparent" Kind="Close" Height="15" Width="15"/>
                         </Grid>

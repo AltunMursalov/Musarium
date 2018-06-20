@@ -13,9 +13,9 @@ namespace Musarium.Repositories {
 
         public bool OpenConnection() {
             try {
-                factory = DbProviderFactories.GetFactory(AppData.MyConnection.ProviderName);
+                factory = DbProviderFactories.GetFactory(AppData.ItstepAcademy.ProviderName);
                 connection = factory.CreateConnection();
-                connection.ConnectionString = AppData.MyConnection.ConnectionString;
+                connection.ConnectionString = AppData.ItstepAcademy.ConnectionString;
                 connection.Open();
                 return true;
             }
@@ -33,7 +33,7 @@ namespace Musarium.Repositories {
             try {
                 DbCommand command = connection.CreateCommand();
                 var _answer = AppData.GetParameter("Answer", answer.QuestionAnswer, System.Data.DbType.String, "Answer", command);
-                var _isRight = AppData.GetParameter("IsRight", true, System.Data.DbType.Boolean, "IsRight", command);
+                var _isRight = AppData.GetParameter("IsRight", answer.IsRight, System.Data.DbType.Boolean, "IsRight", command);
                 var _questionId = AppData.GetParameter("QuestionId", answer.QuestionID, System.Data.DbType.Int32, "QuestionId", command);
                 command.Parameters.Add(_answer);
                 command.Parameters.Add(_questionId);

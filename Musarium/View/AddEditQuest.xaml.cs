@@ -33,6 +33,11 @@ namespace Musarium.View {
             this.Done.Visibility = Visibility.Visible;
         }
 
+        public void ChangedButtonToNext() {
+            this.Next.Visibility = Visibility.Visible;
+            this.Done.Visibility = Visibility.Collapsed;
+        }
+
         public void ShowAlert(string text, string caption) {
             MessageBox.Show(text, caption);
         }

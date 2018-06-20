@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Musarium.Model;
 
-namespace Musarium.Interfaces
-{
-    public interface ITextQuestionViewModel
-    {
+namespace Musarium.Interfaces {
+    public interface ITextQuestionViewModel {
+        Question Question { get; set; }
         ITextQuestionView View { get; }
     }
 }
- 

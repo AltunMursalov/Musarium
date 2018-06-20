@@ -14,7 +14,7 @@ namespace Musarium.Services {
         private readonly IPrizeRepository prizeRepository;
         private readonly IQuestRepository questRepository;
         private readonly IQuestionRepository questionRepository;
-        ICityRepository cityRepository; 
+        ICityRepository cityRepository;
         private readonly IStatisticRepository statisticRepository;
         private readonly IAnswerRepository answerRepository;
         private AppData AppData = AppData.GetInstance();
@@ -31,18 +31,6 @@ namespace Musarium.Services {
             this.statisticRepository = statisticRepository;
         }
 
-        public Quest CreateQuest(Quest quest, Question question, Prize prize, Museum museum) {
-            this.questRepository.OpenConnection();
-            var _quest = this.questRepository.CreateQuest(quest, question, prize, museum);
-            if (quest != null) {
-                this.questRepository.CloseConnection();
-                return quest;
-            } else {
-                this.questRepository.CloseConnection();
-                return null;
-            }
-        }
-
         public bool DeleteQuest(Quest quest) {
             var result = questRepository.OpenConnection();
             if (result != false) {
@@ -57,13 +45,43 @@ namespace Musarium.Services {
             }
         }
 
-        public bool CreateQuestion(Question question, List<Answer> answer) {
+        public bool CreateQuest(Quest quest, IEnumerable<Question> questions, IEnumerable<Answer> answers, Prize prize) {
+            try {
+                this.questRepository.OpenConnection();
+                var questResult = questRepository.CreateQuest(quest, prize, this.AppData.CurrentMuseum);
+                this.questRepository.CloseConnection();
+                this.questionRepository.OpenConnection();
+                this.answerRepository.OpenConnection();
+                foreach (var question in questions) {
+                    question.QuestId = questResult.Id;
+                    var questionResult = this.questionRepository.CreateQuestion(question);
+                    foreach (var answer in answers) {
+                        answer.QuestionID = questionResult.Id;
+                        this.answerRepository.CreateAnswer(answer);
+                    }
+                }
+                this.questionRepository.CloseConnection();
+                this.answerRepository.CloseConnection();
+                this.prizeRepository.OpenConnection();
+                this.prizeRepository.CreatePrize(prize);
+                return true;
+            }
+            catch (Exception) {
+                return false;
+            }
+        }
+
+        public bool CreateManyAnswerQuestion(IEnumerable<Question> question, IEnumerable<Answer> answer) {
             this.questionRepository.OpenConnection();
-            var result = this.questionRepository.CreateQuestion(question);
-            if (result != null) {
+            int questionId = 0;
+            foreach (var item in question) {
+                var result = this.questionRepository.CreateQuestion(item);
+                questionId = result.Id;
+            }
+            if (questionId != 0) {
                 this.questionRepository.CloseConnection();
                 foreach (var item in answer) {
-                    item.QuestionID = result.Id;
+                    item.QuestionID = questionId;
                     this.answerRepository.CreateAnswer(item);
                 }
                 return true;
@@ -189,6 +207,25 @@ namespace Musarium.Services {
                 return true;
             } else {
                 this.prizeRepository.CloseConnection();
+                return false;
+            }
+        }
+
+        public bool CreateTextQuestion(Question question, Answer answer) {
+            this.questionRepository.OpenConnection();
+            var result = this.questionRepository.CreateQuestion(question);
+            if (result != null) {
+                this.questionRepository.CloseConnection();
+                this.answerRepository.OpenConnection();
+                answer.QuestionID = result.Id;
+                var answerResult = this.answerRepository.CreateAnswer(answer);
+                this.answerRepository.CloseConnection();
+                if (answerResult != null) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
                 return false;
             }
         }

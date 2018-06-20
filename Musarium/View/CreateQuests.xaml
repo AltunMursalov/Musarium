@@ -16,11 +16,11 @@
             <Setter Property="FontSize" Value="15"/>
         </Style>
     </Page.Resources>
-    
+
     <StackPanel Background="White">
         <Label Content="Теперь необходимо создать вопросы и задания для квеста." HorizontalAlignment="Center" FontSize="20"/>
 
-        <ListBox HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListBox HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Questions}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
 
@@ -31,12 +31,12 @@
                                     <StackPanel Orientation="Horizontal">
 
                                         <Label Content="Вопрос:" FontWeight="Bold" FontSize="19" Foreground="#2D3E50"/>
-                                        <Label Content="asdf" FontSize="17" VerticalContentAlignment="Center" HorizontalAlignment="Center" Foreground="#2D3E50"/>
+                                        <Label Content="{Binding Description}" FontSize="17" VerticalContentAlignment="Center" HorizontalAlignment="Center" Foreground="#2D3E50"/>
                                     </StackPanel>
 
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
-                                        <Label Content="124453" HorizontalContentAlignment="Right" FontSize="17" VerticalContentAlignment="Center" Foreground="#2D3E50"/>
+                                        <Label Content="{Binding Points}" HorizontalContentAlignment="Right" FontSize="17" VerticalContentAlignment="Center" Foreground="#2D3E50"/>
 
                                         <Label Content="MP" HorizontalContentAlignment="Right"  FontSize="17" VerticalContentAlignment="Center" Foreground="#2D3E50"/>
 
@@ -60,8 +60,8 @@
                                 </Grid.ColumnDefinitions>
 
                                 <StackPanel Grid.Column="0">
-                                    <Label Content="Вопрос:" Style="{StaticResource ProfileEdit}"/>
-                                    <TextBlock Text="asdasdsad" Foreground="#2D3E50" FontSize="15" TextWrapping="Wrap"/>
+                                    <Label Content="Ответ:" Style="{StaticResource ProfileEdit}"/>
+                                    <TextBlock Text="{Binding Answer}" Foreground="#2D3E50" FontSize="15" TextWrapping="Wrap"/>
                                 </StackPanel>
 
                                 <Image Margin="10" Grid.Column="2" Source="{Binding Question.PictureSrc}"/>

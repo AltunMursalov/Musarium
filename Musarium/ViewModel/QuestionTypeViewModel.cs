@@ -15,25 +15,28 @@ namespace Musarium.ViewModel {
 
         public IQuestionTypeView View { get; private set; }
 
-        private ICommand questionWithTextBoxCom;
-        public ICommand QuestionWithTextBoxCom {
+        private ICommand choose;
+        public ICommand Choose {
             get {
-                if (questionWithTextBoxCom is null) {
-                    questionWithTextBoxCom = new RelayCommand(
+                if (choose is null) {
+                    choose = new RelayCommand(
                         (param) => {
                             int type = Convert.ToInt32(param);
                             this.View.Hide();
                             if (type == 1) {
-                                this.AppData.Container.Resolve<ITextQuestionViewModel>().View.ShowDialog();
+                                var textQuestion = this.AppData.Container.Resolve<ITextQuestionViewModel>();
+                                textQuestion.Question.QuestionType = type;
+                                textQuestion.View.ShowDialog();
                             } else if (type == 2) {
-                                this.AppData.Container.Resolve<IManyAnswerQuestionViewModel>().View.ShowDialog();
+                                var manyAnswerQuestion = this.AppData.Container.Resolve<IManyAnswerQuestionViewModel>();
+                                manyAnswerQuestion.Question.QuestionType = type;
+                                manyAnswerQuestion.View.ShowDialog();
                             }
                         });
                 }
-
-                return questionWithTextBoxCom;
+                return choose;
             }
         }
-         
+
     }
 }

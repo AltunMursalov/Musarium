@@ -5,6 +5,7 @@
         void SetFramesContext(ITaskInfoAboutQuestView aboutQuestView, ICreateQuestsView createQuestsView, IPrizeShowView prizeShowView);
         void Hide();
         void ChangedButtonToDone();
+        void ChangedButtonToNext();
         void Show();
     }
 }

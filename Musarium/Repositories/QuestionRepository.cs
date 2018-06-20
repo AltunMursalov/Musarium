@@ -16,9 +16,9 @@ namespace Musarium.Repositories {
 
         public bool OpenConnection() {
             try {
-                factory = DbProviderFactories.GetFactory(AppData.MyConnection.ProviderName);
+                factory = DbProviderFactories.GetFactory(AppData.ItstepAcademy.ProviderName);
                 connection = factory.CreateConnection();
-                connection.ConnectionString = AppData.MyConnection.ConnectionString;
+                connection.ConnectionString = AppData.ItstepAcademy.ConnectionString;
                 connection.Open();
                 return true;
             }
@@ -62,18 +62,24 @@ namespace Musarium.Repositories {
             try {
                 DbCommand command = connection.CreateCommand();
                 var _desc = AppData.GetParameter("Description", question.Description, System.Data.DbType.String, "Description", command);
-                var _picSrc = AppData.GetParameter("PictureSrc", question.Description, System.Data.DbType.String, "PictureSrc", command);
-                var _points = AppData.GetParameter("Points", question.Description, System.Data.DbType.Int32, "Points", command);
-                var _hint = AppData.GetParameter("Hint", question.Description, System.Data.DbType.String, "Hint", command);
-                var _questionType = AppData.GetParameter("QuestionType", question.Description, System.Data.DbType.Int32, "QuestionType", command);
-                var _questId = AppData.GetParameter("QuestId", question.Description, System.Data.DbType.Int32, "QuestId", command);
+                var _picSrc = AppData.GetParameter("PictureSrc", question.PictureSrc, System.Data.DbType.String, "PictureSrc", command);
+                var _points = AppData.GetParameter("Points", question.Points, System.Data.DbType.Int32, "Points", command);
+                var _hint = AppData.GetParameter("Hint", question.Hint, System.Data.DbType.String, "Hint", command);
+                var _questionType = AppData.GetParameter("QuestionType", question.QuestionType, System.Data.DbType.Int32, "QuestionType", command);
+                var _questId = AppData.GetParameter("QuestId", question.QuestId, System.Data.DbType.Int32, "QuestId", command);
+                command.Parameters.Add(_desc);
+                command.Parameters.Add(_picSrc);
+                command.Parameters.Add(_points);
+                command.Parameters.Add(_hint);
+                command.Parameters.Add(_questionType);
+                command.Parameters.Add(_questId);
                 command.CommandText = "INSERT INTO Questions (Description, PictureSrc, Points, Hint, QuestionType, QuestId) " +
                                       "VALUES (@Description, @PictureSrc, @Points, @Hint, @QuestionType, @QuestId)";
                 command.ExecuteNonQuery();
                 question.Id = AppData.GetLastId("Questions", connection);
                 return question;
             }
-            catch (DbException) {
+            catch (DbException ex) {
                 return null;
             }
         }

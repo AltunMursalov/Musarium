@@ -3,18 +3,20 @@ using Autofac;
 using Musarium.Interfaces;
 using System.Windows.Input;
 using Musarium.Model;
+using System.Collections.ObjectModel;
 
 namespace Musarium.ViewModel {
     public class CreateQuestionsViewModel : NotifyableObject, ICreateQuestsViewModel {
         public ICreateQuestsView View { get; private set; }
-        private Question question;
-        public Question Question { get => question; set { question = value; base.OnChanged(); } }
+        public ObservableCollection<Question> Questions { get; set; }
+        public ObservableCollection<Answer> Answers { get; set; }
         private AppData AppData;
         public CreateQuestionsViewModel(ICreateQuestsView view) {
             this.View = view;
             this.View.BindDataContext(this);
             this.AppData = AppData.GetInstance();
-            this.Question = new Question();
+            this.Questions = new ObservableCollection<Question>();
+            this.Answers = new ObservableCollection<Answer>();
         }
 
         private ICommand chooseType;
@@ -32,4 +34,4 @@ namespace Musarium.ViewModel {
             }
         }
     }
-} 
+}

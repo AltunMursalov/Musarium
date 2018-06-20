@@ -33,6 +33,12 @@ namespace Musarium.ViewModel {
                             this.View.Hide();
                             AppData.Container.Resolve<IMuseumEditingViewModel>().View.Hide();
                             AppData.Container.Resolve<IAddEditViewModel>().View.Show();
+                            AppData.Container.Resolve<IAddEditViewModel>().View.ChangedButtonToNext();
+                            this.AppData.Container.Resolve<ITaskInfoAboutQuestViewModel>().View.Show();
+                            this.AppData.Container.Resolve<ICreateQuestsViewModel>().Answers.Clear();
+                            this.AppData.Container.Resolve<ICreateQuestsViewModel>().Questions.Clear();
+                            this.AppData.Container.Resolve<ICreateQuestsViewModel>().View.Hide();
+                            this.AppData.Container.Resolve<IPrizeShowViewModel>().View.Hide();
                         },
                         (param) => { return true; }
                     );

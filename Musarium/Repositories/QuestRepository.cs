@@ -13,9 +13,9 @@ namespace Musarium.Repositories {
 
         public bool OpenConnection() {
             try {
-                factory = DbProviderFactories.GetFactory(AppData.MyConnection.ProviderName);
+                factory = DbProviderFactories.GetFactory(AppData.ItstepAcademy.ProviderName);
                 connection = factory.CreateConnection();
-                connection.ConnectionString = AppData.MyConnection.ConnectionString;
+                connection.ConnectionString = AppData.ItstepAcademy.ConnectionString;
                 connection.Open();
                 return true;
             }
@@ -56,7 +56,7 @@ namespace Musarium.Repositories {
             }
         }
 
-        public Quest CreateQuest(Quest quest, Question question, Prize prize, Museum museum) {
+        public Quest CreateQuest(Quest quest, Prize prize, Museum museum) {
             try {
                 DbCommand command = connection.CreateCommand();
                 var _questTitle = AppData.GetParameter("QuestTitle", quest.Title, System.Data.DbType.String, "Title", command);

@@ -29,6 +29,8 @@ namespace Musarium.ViewModel {
             mainWindow.View.Show();
             var museumEditing = AppData.Container.Resolve<IMuseumEditingViewModel>();
             var museumDeveloper = AppData.Container.Resolve<IMuseumDeveloperViewModel>();
+            museumEditing.View.Hide();
+            museumDeveloper.View.Show();
             museumDeveloper.Museum = dataService.GetByLogin(LogInViewModel.Museum.Login);
             museumDeveloper.Museum.CityName = dataService.GetCityName(museumDeveloper.Museum.CityId);
             var editingMuseum = dataService.GetByLogin(LogInViewModel.Museum.Login);

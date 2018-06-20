@@ -2,10 +2,12 @@
 using Musarium.Interfaces;
 using Musarium.Model;
 using System.Windows.Input;
+using Autofac;
 
 namespace Musarium.ViewModel {
     public class TextQuestionViewModel : NotifyableObject, ITextQuestionViewModel {
         public ITextQuestionView View { get; private set; }
+        private AppData AppData;
         private Question question;
         public Question Question {
             get { return question; }
@@ -23,8 +25,13 @@ namespace Musarium.ViewModel {
         public TextQuestionViewModel(ITextQuestionView view, IDataService dataService) {
             View = view;
             View.BindDataContext(this);
+            this.Answer = new Answer {
+                IsRight = true
+            };
+            this.AppData = AppData.GetInstance();
             this.Question = new Question {
-                Points = 10
+                Points = 10,
+                PictureSrc = "awdbhawd"
             };
             this.dataService = dataService;
         }
@@ -36,12 +43,15 @@ namespace Musarium.ViewModel {
                     this.save = new RelayCommand(
                         (param) => {
                             this.View.Hide();
-                            this.dataService.CreateQuestion(this.Question, this.Answer);
+                            this.Question.Answer = Answer.QuestionAnswer;
+                            this.AppData.Container.Resolve<ICreateQuestsViewModel>().Answers.Add(this.Answer);
+                            this.AppData.Container.Resolve<ICreateQuestsViewModel>().Questions.Add(this.Question);
+                            this.View.ShowAlert("Question added!", "INFO");
                         },
                         (param) => { return true; }
                     );
                 }
-                return this.save; 
+                return this.save;
             }
         }
     }

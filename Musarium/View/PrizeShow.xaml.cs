@@ -6,6 +6,9 @@ namespace Musarium.View {
         public PrizeShow() {
             InitializeComponent();
             this.Visibility = System.Windows.Visibility.Collapsed;
+
+
+
         }
 
         public void BindDataContext(IPrizeShowViewModel viewModel) {
