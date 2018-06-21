@@ -61,14 +61,29 @@ namespace Musarium.ViewModel {
                         (param) => {
                             var createQuestions = this.appData.Container.Resolve<ICreateQuestsViewModel>();
                             foreach (var item in this.Answers) {
-                                createQuestions.Answers.Add(item);
+                                createQuestions.Answers.Add(new Answer {
+                                    Id = item.Id,
+                                    IsRight = item.IsRight,
+                                    QuestionAnswer = item.QuestionAnswer,
+                                    QuestionID = item.QuestionID,
+                                    Type = item.Type
+                                });
                                 if (item.IsRight) {
                                     this.Question.Answer = item.QuestionAnswer;
                                 }
                             }
-                            createQuestions.Questions.Add(this.Question);
-                            this.View.Clear();
+                            createQuestions.Questions.Add(new Question {
+                                Answer = this.Question.Answer,
+                                Description = this.Question.Description,
+                                Hint = this.Question.Hint,
+                                Id = this.Question.Id,
+                                PictureSrc = this.Question.PictureSrc,
+                                Points = this.Question.Points,
+                                QuestId = this.Question.QuestId,
+                                QuestionType = this.Question.QuestionType
+                            });
                             this.View.Hide();
+                            this.View.Clear();
                         },
                         (param) => {
                             int i = 0;
